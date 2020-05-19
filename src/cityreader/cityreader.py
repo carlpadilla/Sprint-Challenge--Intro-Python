@@ -7,6 +7,7 @@ import csv
 class City:
     def __init__(self, name, lat, lon):
         self.name = name
+        # need the float to return txt/str to num to pass test
         self.lat = float(lat)
         self.lon = float(lon)
 
@@ -33,12 +34,11 @@ def cityreader(cities=[]):
     # TODO Implement the functionality to read from the 'cities.csv' file
     # For each city record, create a new City instance and add it to the
     # `cities` list
-    with open('cities.csv', newline='') as csv_file:
+    with open("cities.csv", newline='') as csv_file:
         next(csv_file)  # next skips the first line in cities_csv
         cityreader = csv.reader(csv_file)
         for row in cityreader:
             cities.append(City(row[0], row[3], row[4]))
-            return cities
 
     return cities
 
